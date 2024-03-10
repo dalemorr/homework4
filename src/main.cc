@@ -1,4 +1,6 @@
 #include "priority_queue.h"
+
+#include <fstream>
 #include <iostream>
 
 int main() {
