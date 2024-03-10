@@ -6,13 +6,37 @@ void PriorityQueue::insert(AirportRecord *rec) {
 }
 
 std::tuple<AirportRecord*, int> PriorityQueue::maximum() {
+    AirportRecord rec = {
+        "",
+        "",
+        "",
+        "",
+        0, 0, 0,
+        "",
+        0, 0, 0,
+        "",
+        0,
+    };
 
+    return std::make_tuple(&rec, 0);
 }
 
 std::tuple<AirportRecord*, int> PriorityQueue::extractMax() {
+    AirportRecord rec = {
+        "",
+        "",
+        "",
+        "",
+        0, 0, 0,
+        "",
+        0, 0, 0,
+        "",
+        0,
+    };
 
+    return std::make_tuple(&rec, 0);
 }
 
-void PriorityQueue::increaseKey(AirportRecord* rec, int k) {
+void PriorityQueue::increaseKey(AirportRecord *rec, int k) {
 
 }
