@@ -20,3 +20,21 @@ AirportRecord::AirportRecord(string cd, string nm, string ct, string ctry, int l
     longitudeDirection = lndir;
     altitude = alt;
 }
+
+ostream& operator<<(ostream& os, const AirportRecord rec) {
+    os << rec.code << " " 
+        << rec.name << " " 
+        << rec.city << " "
+        << rec.country << " "
+        << rec.latitudeDegrees << " "
+        << rec.latitudeMinutes << " " 
+        << rec.latitudeSeconds << " " 
+        << rec.latitudeDirection << " " 
+        << rec.longitudeDegrees << " " 
+        << rec.longitudeMinutes << " " 
+        << rec.longitudeSeconds << " " 
+        << rec.longitudeDirection << " " 
+        << rec.altitude;
+    
+    return os;
+}

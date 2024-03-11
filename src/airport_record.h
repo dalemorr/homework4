@@ -1,6 +1,7 @@
 #ifndef AIRPORT_RECORD_H
 #define AIRPORT_RECORD_H
 
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -22,6 +23,8 @@ typedef struct AirportRecord {
 
     AirportRecord(string cd, string nm, string ct, string ctry, int ltd, int ltm, int lts, 
             string ltdir, int lnd, int lnm, int lns, string lndir, int alt);
+
+    friend ostream& operator<<(ostream& os, const AirportRecord rec);
 } AirportRecord;
 
 #endif // AIRPORT_RECORD_H

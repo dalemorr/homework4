@@ -43,11 +43,10 @@ int main() {
             lineElems[11],
             stoi(lineElems[12])
         ));
-        
-        for (string elem: lineElems) {
-            cout << elem << " ";
-        }
-        cout << endl;
+    }
+
+    for (AirportRecord rec: recs) {
+        cout << rec << endl;
     }
 
     input.close();
