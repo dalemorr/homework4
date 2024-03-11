@@ -1,2 +1,6 @@
 # Build
 build
+*.o
+
+# VSCode
+.vscode
