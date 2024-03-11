@@ -3,20 +3,25 @@
 
 #include <string>
 
+using namespace std;
+
 typedef struct AirportRecord {
-    std::string code;
-    std::string name;
-    std::string city;
-    std::string country;
+    string code;
+    string name;
+    string city;
+    string country;
     int latitudeDegrees;
     int latitudeMinutes;
     int latitudeSeconds;
-    std::string latitudeDirection;
+    string latitudeDirection;
     int longitudeDegrees;
     int longitudeMinutes;
     int longitudeSeconds;
-    std::string longitudeDirection;
+    string longitudeDirection;
     int altitude;
+
+    AirportRecord(string cd, string nm, string ct, string ctry, int ltd, int ltm, int lts, 
+            string ltdir, int lnd, int lnm, int lns, string lndir, int alt);
 } AirportRecord;
 
 #endif // AIRPORT_RECORD_H
