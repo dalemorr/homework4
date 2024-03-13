@@ -20,31 +20,35 @@ AirportRecord::AirportRecord(std::string cd, std::string nm, std::string ct, std
     altitude = alt;
 }
 
-inline bool operator==(const AirportRecord &lhs, const AirportRecord &rhs) {
-    return lhs.code == rhs.code
-        && lhs.name == rhs.name
-        && lhs.city == rhs.city
-        && lhs.country == rhs.country
-        && lhs.latitudeDegrees == rhs.latitudeDegrees
-        && lhs.latitudeMinutes == rhs.latitudeMinutes
-        && lhs.latitudeSeconds == rhs.latitudeSeconds
-        && lhs.latitudeDirection == rhs.latitudeDirection
-        && lhs.longitudeDegrees == rhs.longitudeDegrees
-        && lhs.longitudeMinutes == rhs.longitudeMinutes
-        && lhs.longitudeSeconds == rhs.longitudeSeconds
-        && lhs.longitudeDirection == rhs.longitudeDirection
-        && lhs.altitude == rhs.altitude;
+bool AirportRecord::equals(const AirportRecord &rhs) {
+    return this->code == rhs.code
+        && this->name == rhs.name
+        && this->city == rhs.city
+        && this->country == rhs.country
+        && this->latitudeDegrees == rhs.latitudeDegrees
+        && this->latitudeMinutes == rhs.latitudeMinutes
+        && this->latitudeSeconds == rhs.latitudeSeconds
+        && this->latitudeDirection == rhs.latitudeDirection
+        && this->longitudeDegrees == rhs.longitudeDegrees
+        && this->longitudeMinutes == rhs.longitudeMinutes
+        && this->longitudeSeconds == rhs.longitudeSeconds
+        && this->longitudeDirection == rhs.longitudeDirection
+        && this->altitude == rhs.altitude;
 }
 
-inline bool operator>(const AirportRecord &lhs, const AirportRecord &rhs) {
-    return lhs.altitude > rhs.altitude;
+bool AirportRecord::operator==(const AirportRecord &rhs) {
+    return this->altitude == rhs.altitude;
 }
 
-inline bool operator<(const AirportRecord &lhs, const AirportRecord &rhs) {
-    return lhs.altitude < rhs.altitude;
+inline bool AirportRecord::operator>(const AirportRecord &rhs) {
+    return this->altitude > rhs.altitude;
 }
 
-ostream& operator<<(ostream& os, const AirportRecord rec) {
+inline bool AirportRecord::operator<(const AirportRecord &rhs) {
+    return this->altitude < rhs.altitude;
+}
+
+std::ostream& operator<<(std::ostream& os, const AirportRecord rec) {
     os << rec.code << " " 
         << rec.name << " " 
         << rec.city << " " 

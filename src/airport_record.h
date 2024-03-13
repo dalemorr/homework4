@@ -25,9 +25,11 @@ class AirportRecord {
 
         friend std::ostream& operator<<(std::ostream& os, const AirportRecord rec);
 
-        friend inline bool operator==(const AirportRecord &lhs, const AirportRecord &rhs);
+        bool equals(const AirportRecord &rhs); // Compares all fields
 
-        friend inline bool operator>(const AirportRecord &lhs, const AirportRecord &rhs);
+        bool operator==(const AirportRecord &rhs); // Compares only altitudes
 
-        friend inline bool operator<(const AirportRecord &lhs, const AirportRecord &rhs);
+        inline bool operator>(const AirportRecord &rhs);
+
+        inline bool operator<(const AirportRecord &rhs);
 };
