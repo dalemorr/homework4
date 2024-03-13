@@ -3,9 +3,7 @@
 
 #include <algorithm>
 
-using namespace std;
-
-PriorityQueue::PriorityQueue(vector<AirportRecord> vec) {
+PriorityQueue::PriorityQueue(std::vector<AirportRecord> vec) {
     this->keys = vec;
     heapify();
 }
@@ -23,12 +21,12 @@ void PriorityQueue::insert(AirportRecord rec) {
     this->heapify();
 }
 
-tuple<AirportRecord, int> PriorityQueue::maximum() {
+std::tuple<AirportRecord, int> PriorityQueue::maximum() {
     AirportRecord rec = this->keys.front();
-    return make_tuple(rec, rec.altitude);
+    return std::make_tuple(rec, rec.altitude);
 }
 
-tuple<AirportRecord, int> PriorityQueue::extractMax() {
+std::tuple<AirportRecord, int> PriorityQueue::extractMax() {
     auto max = this->maximum();
 
     this->keys.erase(this->keys.begin());

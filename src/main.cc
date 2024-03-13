@@ -7,57 +7,55 @@
 #include <sstream>
 #include <vector>
 
-using namespace std;
-
-vector<string> split(const string &s, char delim);
+std::vector<std::string> split(const std::string &s, char delim);
 
 int main() {
-    ifstream input("./data/air16.txt");
+    std::ifstream input("./data/air16.txt");
     if (!input.is_open()) {
-        cerr << "Unable to open file" << endl;
+        std::cerr << "Unable to open file" << std::endl;
         return 1;
     }
 
-    string line;
-    vector<string> lineElems;
-    vector<AirportRecord> recs;
+    std::string line;
+    std::vector<std::string> lineElems;
+    std::vector<AirportRecord> recs;
 
-    getline(input, line);
-    int size = stoi(line);
+    std::getline(input, line);
+    int size = std::stoi(line);
 
     for (int i = 0; i < size; i++) {
-        getline(input, line);
+        std::getline(input, line);
         lineElems = split(line, ' ');
         recs.push_back(AirportRecord(
             lineElems[0],
             lineElems[1],
             lineElems[2],
             lineElems[3],
-            stoi(lineElems[4]),
-            stoi(lineElems[5]),
-            stoi(lineElems[6]),
+            std::stoi(lineElems[4]),
+            std::stoi(lineElems[5]),
+            std::stoi(lineElems[6]),
             lineElems[7],
-            stoi(lineElems[8]),
-            stoi(lineElems[9]),
-            stoi(lineElems[10]),
+            std::stoi(lineElems[8]),
+            std::stoi(lineElems[9]),
+            std::stoi(lineElems[10]),
             lineElems[11],
-            stoi(lineElems[12])
+            std::stoi(lineElems[12])
         ));
     }
 
     for (AirportRecord rec: recs) {
-        cout << rec << endl;
+        std::cout << rec << std::endl;
     }
 
     input.close();
     return 0;
 }
 
-vector<string> split(const string &s, char delim) {
-    vector<string> elems;
-    istringstream iss(s);
-    string item;
-    while (getline(iss, item, delim)) {
+std::vector<std::string> split(const std::string &s, char delim) {
+    std::vector<std::string> elems;
+    std::istringstream iss(s);
+    std::string item;
+    while (std::getline(iss, item, delim)) {
         elems.push_back(item);
     }
     return elems;

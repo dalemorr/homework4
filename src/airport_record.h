@@ -3,31 +3,27 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-typedef tuple<string, string, string, string, int, int, int, string, 
-    int, int, int, string, int> ARTuple;
-
 class AirportRecord {
     public:
-        string code;
-        string name;
-        string city;
-        string country;
+        std::string code;
+        std::string name;
+        std::string city;
+        std::string country;
         int latitudeDegrees;
         int latitudeMinutes;
         int latitudeSeconds;
-        string latitudeDirection;
+        std::string latitudeDirection;
         int longitudeDegrees;
         int longitudeMinutes;
         int longitudeSeconds;
-        string longitudeDirection;
+        std::string longitudeDirection;
         int altitude;
 
-        AirportRecord(string cd, string nm, string ct, string ctry, int ltd, int ltm, int lts, 
-            string ltdir, int lnd, int lnm, int lns, string lndir, int alt);
+        AirportRecord(std::string cd, std::string nm, std::string ct, std::string ctry, int ltd,
+            int ltm, int lts, std::string ltdir, int lnd, int lnm, int lns, std::string lndir,
+            int alt);
 
-        friend ostream& operator<<(ostream& os, const AirportRecord rec);
+        friend std::ostream& operator<<(std::ostream& os, const AirportRecord rec);
 
         friend inline bool operator==(const AirportRecord &lhs, const AirportRecord &rhs);
 

@@ -2,10 +2,9 @@
 
 #include <string>
 
-using namespace std;
-
-AirportRecord::AirportRecord(string cd, string nm, string ct, string ctry, int ltd, int ltm, 
-        int lts, string ltdir, int lnd, int lnm, int lns, string lndir, int alt) {
+AirportRecord::AirportRecord(std::string cd, std::string nm, std::string ct, std::string ctry,
+        int ltd, int ltm, int lts, std::string ltdir, int lnd, int lnm, int lns,
+        std::string lndir, int alt) {
     code = cd;
     name = nm;
     city = ct;
