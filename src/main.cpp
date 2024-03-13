@@ -1,5 +1,5 @@
-#include "airport_record/airport_record.h"
-#include "priority_queue/priority_queue.h"
+#include "airport_record.h"
+#include "priority_queue.h"
 
 #include <fstream>
 #include <iostream>
@@ -43,8 +43,25 @@ int main() {
         );
     }
 
-    for (const AirportRecord& rec: recs) {
-        std::cout << rec << std::endl;
+    // TESTS
+
+    { // insert tests
+        PriorityQueue queue;
+
+        queue = PriorityQueue();
+
+        queue.insert(recs[0]);
+        queue.insert(recs[1]);
+        queue.insert(recs[2]);
+
+        auto expected = recs[1].altitude;
+        auto actual = std::get<1>(queue.maximum());
+        if (expected == actual) {
+            std::cout << "Insert1 PASS" << std::endl;
+        } else {
+            std::cout << "Insert1 FAIL: Expected " << expected << " got " << actual << std::endl;
+            return 1;
+        }
     }
 
     input.close();
