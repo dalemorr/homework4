@@ -40,15 +40,23 @@ bool AirportRecord::operator==(const AirportRecord &rhs) {
     return this->altitude == rhs.altitude;
 }
 
-inline bool AirportRecord::operator>(const AirportRecord &rhs) {
-    return this->altitude > rhs.altitude;
-}
-
 inline bool AirportRecord::operator<(const AirportRecord &rhs) {
     return this->altitude < rhs.altitude;
 }
 
-std::ostream& operator<<(std::ostream& os, const AirportRecord rec) {
+inline bool AirportRecord::operator>(const AirportRecord &rhs) {
+    return this->altitude > rhs.altitude;
+}
+
+inline bool AirportRecord::operator<=(const AirportRecord &rhs) {
+    return this->altitude <= rhs.altitude;
+}
+
+inline bool AirportRecord::operator>=(const AirportRecord &rhs) {
+    return this->altitude >= rhs.altitude;
+}
+
+std::ostream &operator<<(std::ostream &os, const AirportRecord rec) {
     os << rec.code << " " 
         << rec.name << " " 
         << rec.city << " " 
