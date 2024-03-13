@@ -41,7 +41,7 @@ std::tuple<AirportRecord, int> PriorityQueue::extractMax() {
     return max;
 }
 
-int get_size() {
+int PriorityQueue::get_size() {
     return this->keys.size();
 }
 
