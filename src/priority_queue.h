@@ -9,7 +9,8 @@ class PriorityQueue {
     private:
         std::vector<AirportRecord> keys;
 
-        void heapify();
+        void heapify(int i);
+        void swap(int i, int j);
         int left(int i);
         int right(int i);
         int parent(int i);

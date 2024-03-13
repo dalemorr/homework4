@@ -5,11 +5,11 @@
 
 PriorityQueue::PriorityQueue(std::vector<AirportRecord> vec) {
     this->keys = vec;
-    heapify();
+    heapify(0);
 }
 
 void PriorityQueue::increaseKey(AirportRecord rec, int k) {
-    auto location = find(this->keys.begin(), this->keys.end(), rec);
+    auto location = std::find(this->keys.begin(), this->keys.end(), rec);
 
     if (k > location->altitude) {
         location->altitude = k;
@@ -18,7 +18,7 @@ void PriorityQueue::increaseKey(AirportRecord rec, int k) {
 
 void PriorityQueue::insert(AirportRecord rec) {
     this->keys.push_back(rec);
-    this->heapify();
+    this->heapify(0);
 }
 
 std::tuple<AirportRecord, int> PriorityQueue::maximum() {
@@ -27,16 +27,25 @@ std::tuple<AirportRecord, int> PriorityQueue::maximum() {
 }
 
 std::tuple<AirportRecord, int> PriorityQueue::extractMax() {
-    auto max = this->maximum();
+    std::tuple<AirportRecord, int> max = this->maximum();
 
-    this->keys.erase(this->keys.begin());
-    this->heapify();
+    this->keys[0] = this->keys.back();
+    this->keys.pop_back();
+    this->heapify(0);
 
     return max;
 }
 
-void PriorityQueue::heapify() {
+void PriorityQueue::heapify(int i) {
+    AirportRecord max = this->keys.front();
+    int left = this->left(i);
+    int right = this->right(i);
+}
 
+void PriorityQueue::swap(int i, int j) {
+    AirportRecord temp = this->keys[i];
+    this->keys[i] = this->keys[j];
+    this->keys[j] = temp;
 }
 
 int PriorityQueue::left(int i) {
