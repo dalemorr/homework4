@@ -17,8 +17,13 @@ void PriorityQueue::increaseKey(AirportRecord rec, int k) {
 }
 
 void PriorityQueue::insert(AirportRecord rec) {
-    this->keys.push_back(rec);
-    this->heapify(0);
+    keys.push_back(rec);
+
+    int i = this->keys.size() - 1;
+    while (i != 0 && this->keys[parent(i)] < rec) {
+        swap(i, this->parent(i));
+        i = parent(i);
+    }
 }
 
 std::tuple<AirportRecord, int> PriorityQueue::maximum() {
