@@ -1,6 +1,7 @@
 #include "priority_queue.h"
 #include "airport_record.h"
 
+#include <algorithm>
 #include <utility>
 
 PriorityQueue::PriorityQueue(std::vector<AirportRecord> vec) {

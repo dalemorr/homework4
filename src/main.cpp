@@ -10,7 +10,7 @@
 std::vector<std::string> split(const std::string &s, char delim);
 
 int main() {
-    std::ifstream input("../data/air16.txt");
+    std::ifstream input("./data/air16.txt");
     if (!input.is_open()) {
         std::cerr << "Unable to open file" << std::endl;
         return 1;
