@@ -10,6 +10,9 @@ class PriorityQueue {
         std::vector<AirportRecord> keys;
 
         void heapify();
+        int left(int i);
+        int right(int i);
+        int parent(int i);
     public:
         PriorityQueue(std::vector<AirportRecord> vec);
         void insert(AirportRecord rec);

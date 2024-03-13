@@ -38,3 +38,19 @@ std::tuple<AirportRecord, int> PriorityQueue::extractMax() {
 void PriorityQueue::heapify() {
 
 }
+
+int PriorityQueue::left(int i) {
+    return 2*i + 1;
+}
+
+int PriorityQueue::right(int i) {
+    return 2*i + 2;
+}
+
+int PriorityQueue::parent(int i) {
+    if (i % 2 == 0) { // left child
+        return (i - 1) / 2;
+    } else { // right child
+        return (i - 2) / 2;
+    }
+}
