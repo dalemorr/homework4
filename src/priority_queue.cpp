@@ -5,8 +5,9 @@
 #include <utility>
 
 PriorityQueue::PriorityQueue(std::vector<AirportRecord> vec) {
-    this->keys = std::move(vec);
-    heapify(0);
+    for (auto &element : vec) {
+        this->insert(element);
+    }
 }
 
 void PriorityQueue::increase_key(const AirportRecord& rec, int k) {

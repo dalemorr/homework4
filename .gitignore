@@ -4,3 +4,6 @@ build
 
 # VSCode
 .vscode
+
+# IDEA
+.idea

@@ -45,7 +45,99 @@ int main() {
 
     // TESTS
 
+    { // maximum tests
+        PriorityQueue queue;
+
+        queue = PriorityQueue(recs);
+
+        auto expected = recs[1].altitude;
+        auto actual = std::get<1>(queue.maximum());
+        if (expected == actual) {
+            std::cout << "Maximum1 PASS" << std::endl;
+        } else {
+            std::cout << "Maximum1 FAIL: Expected " << expected << " got " << actual << std::endl;
+            return 1;
+        }
+
+        std::vector<AirportRecord> vec1{recs[2], recs[3], recs[4]};
+
+        queue = PriorityQueue(vec1);
+
+        expected = vec1[1].altitude;
+        actual = std::get<1>(queue.maximum());
+        if (expected == actual) {
+            std::cout << "Maximum2 PASS" << std::endl;
+        } else {
+            std::cout << "Maximum2 FAIL: Expected " << expected << " got " << actual << std::endl;
+            return 1;
+        }
+    }
+
+    { // extract maximum tests
+        PriorityQueue queue;
+
+        queue = PriorityQueue(recs);
+
+        auto expected1 = recs[1].altitude;
+        auto actual1 = std::get<1>(queue.extract_max());
+        auto expected2 = recs[0].altitude;
+        auto actual2 = std::get<1>(queue.extract_max());
+        if (expected1 == actual1 && expected2 == actual2) {
+            std::cout << "ExtractMax1 PASS" << std::endl;
+        } else {
+            std::cout << "ExtractMax1 FAIL: Expected " << expected1 << ", " << expected2 << " got " << actual1 << ", " << actual2 << std::endl;
+            return 1;
+        }
+
+        std::vector<AirportRecord> vec1{recs[2], recs[3], recs[4]};
+
+        queue = PriorityQueue(vec1);
+
+        auto expected = vec1[1].altitude;
+        auto actual = std::get<1>(queue.maximum());
+        if (expected == actual) {
+            std::cout << "ExtractMax2 PASS" << std::endl;
+        } else {
+            std::cout << "ExtractMax2 FAIL: Expected " << expected << " got " << actual << std::endl;
+            return 1;
+        }
+    }
+
     { // insert tests
+        PriorityQueue queue;
+
+        queue = PriorityQueue();
+
+        queue.insert(recs[2]);
+        queue.insert(recs[3]);
+        queue.insert(recs[4]);
+
+        auto expected = recs[3].altitude;
+        auto actual = std::get<1>(queue.maximum());
+        if (expected == actual) {
+            std::cout << "Insert1 PASS" << std::endl;
+        } else {
+            std::cout << "Insert1 FAIL: Expected " << expected << " got " << actual << std::endl;
+            return 1;
+        }
+
+        queue = PriorityQueue();
+
+        queue.insert(recs[0]);
+        queue.insert(recs[1]);
+        queue.insert(recs[2]);
+
+        expected = recs[1].altitude;
+        actual = std::get<1>(queue.maximum());
+        if (expected == actual) {
+            std::cout << "Insert2 PASS" << std::endl;
+        } else {
+            std::cout << "Insert2 FAIL: Expected " << expected << " got " << actual << std::endl;
+            return 1;
+        }
+    }
+
+    { // increase key tests
         PriorityQueue queue;
 
         queue = PriorityQueue();
@@ -54,12 +146,14 @@ int main() {
         queue.insert(recs[1]);
         queue.insert(recs[2]);
 
-        auto expected = recs[1].altitude;
+        queue.increase_key(recs[1], 5000);
+
+        auto expected = 5000;
         auto actual = std::get<1>(queue.maximum());
         if (expected == actual) {
-            std::cout << "Insert1 PASS" << std::endl;
+            std::cout << "IncreaseKey1 PASS" << std::endl;
         } else {
-            std::cout << "Insert1 FAIL: Expected " << expected << " got " << actual << std::endl;
+            std::cout << "IncreaseKey2 FAIL: Expected " << expected << " got " << actual << std::endl;
             return 1;
         }
     }
