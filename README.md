@@ -6,7 +6,7 @@ The main class runs test cases for the PriorityQueue class.
 
 ## Build
 
-Run `make`.
+Run `cmake -S . -B build`.
 
 ## Run
 
