@@ -6,7 +6,7 @@ namespace {
     TEST (Insert, TEST1_EmptyHeap) {
         auto queue = new PriorityQueue();
 
-        AirportRecord rec = {
+        AirportRecord *rec = new AirportRecord(
             "",
             "",
             "",
@@ -14,11 +14,12 @@ namespace {
             0, 0, 0,
             "",
             0, 0, 0,
-            ""
-        }
-        queue->insert(rec);
+            "",
+            10
+        );
+        queue->insert(*rec);
 
-        ASSERT_EQ("[1]", queue->toString());
+        ASSERT_EQ(10, queue->maximum());
         ASSERT_EQ(1, queue->get_size());
     }
 }
