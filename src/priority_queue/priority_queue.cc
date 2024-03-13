@@ -1,5 +1,5 @@
 #include "priority_queue.h"
-#include "airport_record.h"
+#include "../airport_record/airport_record.h"
 
 #include <algorithm>
 
@@ -39,6 +39,10 @@ std::tuple<AirportRecord, int> PriorityQueue::extractMax() {
     this->heapify(0);
 
     return max;
+}
+
+int get_size() {
+    return this->keys.size();
 }
 
 void PriorityQueue::heapify(int i) {

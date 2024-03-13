@@ -1,6 +1,6 @@
 #pragma once
 
-#include "airport_record.h"
+#include "../airport_record/airport_record.h"
 
 #include <tuple>
 #include <vector>
@@ -20,4 +20,5 @@ class PriorityQueue {
         std::tuple<AirportRecord, int> maximum();
         std::tuple<AirportRecord, int> extractMax();
         void increaseKey(AirportRecord rec, int k);
+        int get_size();
 };

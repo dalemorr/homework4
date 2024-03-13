@@ -1,5 +1,5 @@
-#include "priority_queue.h"
-#include "airport_record.h"
+#include "priority_queue/priority_queue.h"
+#include "airport_record/airport_record.h"
 
 #include <fstream>
 #include <iostream>
