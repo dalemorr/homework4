@@ -29,11 +29,13 @@ class AirportRecord {
 
         bool operator==(const AirportRecord &rhs); // Compares only altitudes
 
-        inline bool operator<(const AirportRecord &rhs);
+        bool operator!=(const AirportRecord &rhs); // Compares only altitudes
 
-        inline bool operator>(const AirportRecord &rhs);
+        bool operator<(const AirportRecord &rhs);
 
-        inline bool operator<=(const AirportRecord &rhs);
+        bool operator>(const AirportRecord &rhs);
 
-        inline bool operator>=(const AirportRecord &rhs);
+        bool operator<=(const AirportRecord &rhs);
+
+        bool operator>=(const AirportRecord &rhs);
 };

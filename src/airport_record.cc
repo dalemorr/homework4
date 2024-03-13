@@ -40,19 +40,23 @@ bool AirportRecord::operator==(const AirportRecord &rhs) {
     return this->altitude == rhs.altitude;
 }
 
-inline bool AirportRecord::operator<(const AirportRecord &rhs) {
+bool AirportRecord::operator!=(const AirportRecord &rhs) {
+    return this->altitude != rhs.altitude;
+}
+
+bool AirportRecord::operator<(const AirportRecord &rhs) {
     return this->altitude < rhs.altitude;
 }
 
-inline bool AirportRecord::operator>(const AirportRecord &rhs) {
+bool AirportRecord::operator>(const AirportRecord &rhs) {
     return this->altitude > rhs.altitude;
 }
 
-inline bool AirportRecord::operator<=(const AirportRecord &rhs) {
+bool AirportRecord::operator<=(const AirportRecord &rhs) {
     return this->altitude <= rhs.altitude;
 }
 
-inline bool AirportRecord::operator>=(const AirportRecord &rhs) {
+bool AirportRecord::operator>=(const AirportRecord &rhs) {
     return this->altitude >= rhs.altitude;
 }
 
