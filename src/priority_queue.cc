@@ -37,15 +37,28 @@ std::tuple<AirportRecord, int> PriorityQueue::extractMax() {
 }
 
 void PriorityQueue::heapify(int i) {
-    AirportRecord max = this->keys.front();
     int left = this->left(i);
-    int right = this->right(i);
+ 	int right = this->right(i);
+    int largest;
+
+ 	if (left <= this->keys.size() - 1 && this->keys[left] > this->keys[i]) {
+ 	    largest = left;
+    } else {
+        largest = i;
+    }
+
+ 	if (right <= this->keys.size() - 1 && this->keys[right] > this->keys[largest]) {
+ 	   largest = right;
+    }
+
+ 	if (largest != i) {
+ 	   this->swap(i, largest);
+ 	   this->heapify(largest);
+    }
 }
 
 void PriorityQueue::swap(int i, int j) {
-    AirportRecord temp = this->keys[i];
-    this->keys[i] = this->keys[j];
-    this->keys[j] = temp;
+    std::iter_swap(keys.begin() + i, keys.begin() + j);
 }
 
 int PriorityQueue::left(int i) {
@@ -57,9 +70,9 @@ int PriorityQueue::right(int i) {
 }
 
 int PriorityQueue::parent(int i) {
-    if (i % 2 == 0) { // left child
-        return (i - 1) / 2;
-    } else { // right child
+    if (i % 2 == 0) { // right child
         return (i - 2) / 2;
+    } else { // left child
+        return (i - 1) / 2;
     }
 }
